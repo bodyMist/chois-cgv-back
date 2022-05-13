@@ -17,4 +17,8 @@ public class Seat {
     @ManyToOne
     @JoinColumn(name = "THEATER_ID")
     private Theater theater;
+
+    @ManyToOne
+    @JoinColumn(name = "RUNNING_ID")
+    private Running running;
 }
