@@ -3,9 +3,7 @@ package choiscgvback.cgv.domain;
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 public class Movie {
@@ -17,11 +15,12 @@ public class Movie {
     @Column(name = "RELEASE", nullable = false)
     private Timestamp release;
 
-    @ElementCollection(targetClass = Genre.class)
-    @CollectionTable(name = "MOVIE_GENRES", joinColumns = @JoinColumn(name = "MOVIE_ID"))
     @Enumerated(EnumType.STRING)
     @Column(name = "GENRE")
-    private Set<Genre> genres = new HashSet<>();
+    private Genre genre;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "MOVIE_RATING")
+    private MovieRating movieRating;
 
     @Column(name = "RUNNING", nullable = false)
     private Integer runningTime;
