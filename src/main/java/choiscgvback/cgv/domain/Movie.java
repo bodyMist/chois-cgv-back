@@ -1,41 +1,35 @@
 package choiscgvback.cgv.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
+@Entity(name = "MOVIES")
 public class Movie {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "MOVIE_ID", nullable = false)
     private Long id;
-    @Column(name = "NAME", nullable = false)
+    @NotNull
     private String name;
-    @Column(name = "RELEASE", nullable = false)
+    @NotNull
     private Timestamp release;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "GENRE")
     private Genre genre;
     @Enumerated(EnumType.STRING)
-    @Column(name = "MOVIE_RATING")
     private MovieRating movieRating;
-
-    @Column(name = "RUNNING", nullable = false)
+    @NotNull
     private Integer runningTime;
-
-    @Column(name = "OPEN", nullable = false)
+    @NotNull
     private LocalDateTime openDate;
-    @Column(name = "MODIFIED")
+    @NotNull
     private LocalDateTime modifiedDate;
 
-    @Column(name = "SUMMARY")
     private String summary;
-    @Column(name = "POSTER")
     private String posterURL;
-    @Column(name = "TRAILER")
     private String trailerURL;
 
     @OneToMany(mappedBy = "movie", cascade = CascadeType.REMOVE)

@@ -1,6 +1,7 @@
 package choiscgvback.cgv.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +10,7 @@ public class Theater {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "THEATER_ID")
     private Long id;
-    @Column(name = "FLOOR")
+    @NotNull
     private Integer floor;
 
     @OneToMany(mappedBy = "theater", cascade = CascadeType.REMOVE)

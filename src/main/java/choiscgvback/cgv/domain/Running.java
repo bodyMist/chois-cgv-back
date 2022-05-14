@@ -1,6 +1,7 @@
 package choiscgvback.cgv.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
@@ -9,16 +10,16 @@ public class Running {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "RUNNING_ID")
     private Long id;
-    @Column(name = "START")
+    @NotNull
     private LocalDateTime start;
-    @Column(name = "END")
+    @NotNull
     private LocalDateTime end;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "MOVIE_ID")
     private Movie movie;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "THEATER_ID")
     private Theater theater;
 }

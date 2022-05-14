@@ -1,22 +1,23 @@
 package choiscgvback.cgv.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Review {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "REVIEWS_ID")
     private Long id;
-    @Column(name = "SCORE", nullable = false)
+    @NotNull
     private Integer score;
-    @Column(name = "comment", nullable = false)
+    @NotNull
     private String comment;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "MEMBER_ID")
     private Member member;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "MOVIE_ID")
     private Movie movie;
 }

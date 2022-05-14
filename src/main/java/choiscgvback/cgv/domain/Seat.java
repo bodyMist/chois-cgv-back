@@ -1,24 +1,25 @@
 package choiscgvback.cgv.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Seat {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "SEAT_ID")
     private Long id;
-    @Column(name = "ROW_NO")
-    private Integer row;
-    @Column(name = "COLUMN_NO")
-    private Integer column;
-    @Column(name = "POSSIBILITY")
+    @NotNull
+    private Integer rowNo;
+    @NotNull
+    private Integer columnNo;
+    @NotNull
     private Boolean possibility;    // 0: 사용가능 1: 사용불가능
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "THEATER_ID")
     private Theater theater;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "RUNNING_ID")
     private Running running;
 }

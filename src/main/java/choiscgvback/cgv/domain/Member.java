@@ -1,6 +1,7 @@
 package choiscgvback.cgv.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 @NamedEntityGraph(
@@ -15,17 +16,17 @@ public class Member{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "MEMBER_ID", nullable = false)
     private Long id;
-    @Column(name = "ACCOUNT", nullable = false)
+    @NotNull
     private String account;
-    @Column(name = "PASSWORD", nullable = false)
+    @NotNull
     private String password;
-    @Column(name = "NAME", nullable = false)
+    @NotNull
     private String name;
-    @Column(name = "AGE", nullable = false)
+    @NotNull
     private Integer age;
-    @Column(name = "SEX", nullable = false)
+    @NotNull
     private boolean sex;    // 0: 남자 1: 여자
-    @Column(name = "TYPE", nullable = false)
+    @NotNull
     private boolean type;   // 0: 관리자 1: 회원
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.REMOVE)

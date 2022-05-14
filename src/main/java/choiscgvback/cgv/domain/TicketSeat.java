@@ -8,10 +8,10 @@ public class TicketSeat {
     @Column(name = "TICKET_SEAT_ID")
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "TICKET_ID")
     private Ticket ticket;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "SEAT_ID")
     private Seat seat;
 }
