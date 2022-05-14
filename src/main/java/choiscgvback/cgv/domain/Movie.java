@@ -2,6 +2,7 @@ package choiscgvback.cgv.domain;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,12 +26,10 @@ public class Movie {
     @Column(name = "RUNNING", nullable = false)
     private Integer runningTime;
 
-    @Column(name = "CREATED", nullable = false)
-    @Temporal(value = TemporalType.TIMESTAMP)
-    private Timestamp createdDate;
+    @Column(name = "OPEN", nullable = false)
+    private LocalDateTime openDate;
     @Column(name = "MODIFIED")
-    @Temporal(value = TemporalType.TIMESTAMP)
-    private Timestamp modifiedDate;
+    private LocalDateTime modifiedDate;
 
     @Column(name = "SUMMARY")
     private String summary;
@@ -39,6 +38,6 @@ public class Movie {
     @Column(name = "TRAILER")
     private String trailerURL;
 
-    @OneToMany(mappedBy = "review", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "movie", cascade = CascadeType.REMOVE)
     private List<Review> reviews = new ArrayList<>();
 }

@@ -2,6 +2,7 @@ package choiscgvback.cgv.domain;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @Entity
 public class Running {
@@ -9,9 +10,9 @@ public class Running {
     @Column(name = "RUNNING_ID")
     private Long id;
     @Column(name = "START")
-    private Timestamp start;
+    private LocalDateTime start;
     @Column(name = "END")
-    private Timestamp end;
+    private LocalDateTime end;
 
     @ManyToOne
     @JoinColumn(name = "MOVIE_ID")
