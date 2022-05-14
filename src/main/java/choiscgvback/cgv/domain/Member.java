@@ -15,6 +15,10 @@ public class Member{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "MEMBER_ID", nullable = false)
     private Long id;
+    @Column(name = "ACCOUNT", nullable = false)
+    private String account;
+    @Column(name = "PASSWORD", nullable = false)
+    private String password;
     @Column(name = "NAME", nullable = false)
     private String name;
     @Column(name = "AGE", nullable = false)
