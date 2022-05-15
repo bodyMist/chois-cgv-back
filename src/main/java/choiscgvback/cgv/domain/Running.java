@@ -11,9 +11,9 @@ public class Running {
     @Column(name = "RUNNING_ID")
     private Long id;
     @NotNull
-    private LocalDateTime start;
+    private LocalDateTime startTime;
     @NotNull
-    private LocalDateTime end;
+    private LocalDateTime endTime;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "MOVIE_ID")

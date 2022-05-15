@@ -3,7 +3,7 @@ package choiscgvback.cgv.domain;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-@Entity
+@Entity(name = "SEATS")
 public class Seat {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "SEAT_ID")

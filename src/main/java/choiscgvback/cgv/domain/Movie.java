@@ -14,8 +14,6 @@ public class Movie {
     private Long id;
     @NotNull
     private String name;
-    @NotNull
-    private Timestamp release;
 
     @Enumerated(EnumType.STRING)
     private Genre genre;
@@ -24,7 +22,7 @@ public class Movie {
     @NotNull
     private Integer runningTime;
     @NotNull
-    private LocalDateTime openDate;
+    private LocalDateTime releaseDate;
     @NotNull
     private LocalDateTime modifiedDate;
 

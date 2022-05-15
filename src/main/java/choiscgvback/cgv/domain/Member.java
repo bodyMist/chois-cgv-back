@@ -1,5 +1,7 @@
 package choiscgvback.cgv.domain;
 
+import lombok.Getter;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
@@ -10,7 +12,8 @@ import java.util.List;
                 @NamedAttributeNode("reviews")
         }
 )
-@Entity
+@Entity(name = "MEMBERS")
+@Getter
 public class Member{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
