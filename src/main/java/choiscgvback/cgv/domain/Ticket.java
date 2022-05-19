@@ -10,6 +10,8 @@ public class Ticket {
     private Long id;
     @NotNull
     private Boolean status; // 0: 예매 1: 예매취소
+    @NotNull
+    private Integer price;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member")

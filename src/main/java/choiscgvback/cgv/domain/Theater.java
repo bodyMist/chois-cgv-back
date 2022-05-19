@@ -13,6 +13,8 @@ public class Theater {
     @NotNull
     private Integer floor;
     @NotNull
+    private String name;
+    @NotNull
     private Integer rowCount;
     @NotNull
     private Integer columnCount;

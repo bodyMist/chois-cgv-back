@@ -14,6 +14,11 @@ public class Seat {
     private Integer columnNo;
     @NotNull
     private Boolean possibility;    // 0: 사용가능 1: 사용불가능
+    @NotNull
+    private Integer price;
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    private SeatType type;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "THEATER_ID")

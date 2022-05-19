@@ -23,12 +23,10 @@ public class Movie {
     private Integer runningTime;
     @NotNull
     private LocalDateTime releaseDate;
-    @NotNull
-    private LocalDateTime modifiedDate;
 
+    private LocalDateTime modifiedDate;
     private String summary;
     private String posterURL;
-    private String trailerURL;
 
     @OneToMany(mappedBy = "movie", cascade = CascadeType.REMOVE)
     private List<Review> reviews = new ArrayList<>();
