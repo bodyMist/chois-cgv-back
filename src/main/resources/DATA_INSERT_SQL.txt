@@ -1,0 +1,33 @@
+// Member data
+insert into Members(account, password, name, age, sex, type) values('1','1','김태훈', 25, 0, 1);
+insert into Members(account, password, name, age, sex, type) values('2','2','정승현', 25, 0, 1);
+insert into Members(account, password, name, age, sex, type) values('3','3','최기범', 25, 0, 1);
+
+// Movie data
+insert into Movies(name, genre, movie_rating, running_time, release_date) Values('범죄도시2', 'ACTION', 'ADULT', 120,'2022-05-18')
+insert into Movies(name, genre, movie_rating, running_time, release_date) Values('극장판 주술회전 0', 'ANIME', 'ALL', 112,'2022-02-25')
+insert into Movies(name, genre, movie_rating, running_time, release_date) Values('닥터 스트레인지-대혼돈의 멀티버스', 'FANTASY', 'TEEN', 138,'2022-05-04')
+insert into Movies(name, genre, movie_rating, running_time, release_date) Values('쥬라기 월드-도미니언', 'FANTASY', 'TEEN', 120,'2022-06-01')
+insert into Movies(name, genre, movie_rating, running_time, release_date) Values('배드 가이즈', 'ANIME', 'ALL', 100,'2022-05-04')
+insert into Movies(name, genre, movie_rating, running_time, release_date) Values('그대가 조국', 'DRAMA', 'CHILD', 120,'2022-05-25')
+insert into Movies(name, genre, movie_rating, running_time, release_date) Values('신비한 동물들과 덤블도어의 비밀', 'FANTASY', 'CHILD', 142,'2022-04-13')
+insert into Movies(name, genre, movie_rating, running_time, release_date) Values('언어의 정원', 'ANIME', 'CHILD', 46,'2022-05-23')
+
+// Theater data
+insert into Theaters(floor, name, row_count, column_count) values(1, '1관', 8, 10);
+insert into Theaters(floor, name, row_count, column_count) values(2, '2관', 8, 10);
+
+// Seat data
+insert into Seats(row_no, column_no, possibility, theater_id) values(1, 1, 0, 1);
+insert into Seats(row_no, column_no, possibility, theater_id) values(1, 2, 0, 1);
+insert into Seats(row_no, column_no, possibility, theater_id) values(1, 3, 0, 1);
+insert into Seats(row_no, column_no, possibility, theater_id) values(1, 4, 0, 1);
+insert into Seats(row_no, column_no, possibility, theater_id) values(1, 5, 0, 1);
+insert into Seats(row_no, column_no, possibility, theater_id) values(1, 6, 0, 1);
+
+insert into Seats(row_no, column_no, possibility, theater_id) values(1, 1, 0, 2);
+insert into Seats(row_no, column_no, possibility, theater_id) values(1, 2, 0, 2);
+insert into Seats(row_no, column_no, possibility, theater_id) values(1, 3, 0, 2);
+insert into Seats(row_no, column_no, possibility, theater_id) values(1, 4, 0, 2);
+insert into Seats(row_no, column_no, possibility, theater_id) values(1, 5, 0, 2);
+insert into Seats(row_no, column_no, possibility, theater_id) values(1, 6, 0, 2);
