@@ -1,5 +1,7 @@
 package choiscgvback.cgv.domain;
 
+import lombok.Getter;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
@@ -7,6 +9,8 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+@NamedEntityGraph(name = "movie_with_running",attributeNodes = @NamedAttributeNode("runningList"))
+@Getter
 @Entity(name = "MOVIES")
 public class Movie {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,4 +34,7 @@ public class Movie {
 
     @OneToMany(mappedBy = "movie", cascade = CascadeType.REMOVE)
     private List<Review> reviews = new ArrayList<>();
+
+    @OneToMany(mappedBy = "movie")
+    private List<Running> runningList = new ArrayList<>();
 }

@@ -6,7 +6,7 @@ import javax.validation.constraints.NotNull;
 @Entity(name = "REVIEWS")
 public class Review {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "REVIEWS_ID")
+    @Column(name = "REVIEW_ID")
     private Long id;
     @NotNull
     private Integer score;
