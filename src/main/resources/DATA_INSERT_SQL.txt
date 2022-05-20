@@ -4,30 +4,102 @@ insert into Members(account, password, name, age, sex, type) values('2','2','정
 insert into Members(account, password, name, age, sex, type) values('3','3','최기범', 25, 0, 1);
 
 // Movie data
-insert into Movies(name, genre, movie_rating, running_time, release_date) Values('범죄도시2', 'ACTION', 'ADULT', 120,'2022-05-18')
-insert into Movies(name, genre, movie_rating, running_time, release_date) Values('극장판 주술회전 0', 'ANIME', 'ALL', 112,'2022-02-25')
-insert into Movies(name, genre, movie_rating, running_time, release_date) Values('닥터 스트레인지-대혼돈의 멀티버스', 'FANTASY', 'TEEN', 138,'2022-05-04')
-insert into Movies(name, genre, movie_rating, running_time, release_date) Values('쥬라기 월드-도미니언', 'FANTASY', 'TEEN', 120,'2022-06-01')
-insert into Movies(name, genre, movie_rating, running_time, release_date) Values('배드 가이즈', 'ANIME', 'ALL', 100,'2022-05-04')
-insert into Movies(name, genre, movie_rating, running_time, release_date) Values('그대가 조국', 'DRAMA', 'CHILD', 120,'2022-05-25')
-insert into Movies(name, genre, movie_rating, running_time, release_date) Values('신비한 동물들과 덤블도어의 비밀', 'FANTASY', 'CHILD', 142,'2022-04-13')
-insert into Movies(name, genre, movie_rating, running_time, release_date) Values('언어의 정원', 'ANIME', 'CHILD', 46,'2022-05-23')
+insert into Movies(name, genre, movie_rating, running_time, release_date) Values('범죄도시2', 'ACTION', 'ADULT', 120,'2022-05-18');
+insert into Movies(name, genre, movie_rating, running_time, release_date) Values('극장판 주술회전 0', 'ANIME', 'ALL', 112,'2022-02-25');
+insert into Movies(name, genre, movie_rating, running_time, release_date) Values('닥터 스트레인지-대혼돈의 멀티버스', 'FANTASY', 'TEEN', 138,'2022-05-04');
+insert into Movies(name, genre, movie_rating, running_time, release_date) Values('쥬라기 월드-도미니언', 'FANTASY', 'TEEN', 120,'2022-06-01');
+insert into Movies(name, genre, movie_rating, running_time, release_date) Values('배드 가이즈', 'ANIME', 'ALL', 100,'2022-05-04');
+insert into Movies(name, genre, movie_rating, running_time, release_date) Values('그대가 조국', 'DRAMA', 'CHILD', 120,'2022-05-25');
+insert into Movies(name, genre, movie_rating, running_time, release_date) Values('신비한 동물들과 덤블도어의 비밀', 'FANTASY', 'CHILD', 142,'2022-04-13');
+insert into Movies(name, genre, movie_rating, running_time, release_date) Values('언어의 정원', 'ANIME', 'CHILD', 46,'2022-05-23');
+
+// Review data
+insert into Reviews(score, comment, member_id, movie_id) values(1, 'good', 1, 1);
+insert into Reviews(score, comment, member_id, movie_id) values(2, 'good', 1, 2);
+insert into Reviews(score, comment, member_id, movie_id) values(3, 'good', 1, 3);
+insert into Reviews(score, comment, member_id, movie_id) values(4, 'good', 1, 4);
+insert into Reviews(score, comment, member_id, movie_id) values(5, 'good', 1, 5);
+
+insert into Reviews(score, comment, member_id, movie_id) values(5, 'good', 2, 1);
+insert into Reviews(score, comment, member_id, movie_id) values(5, 'good', 2, 2);
+insert into Reviews(score, comment, member_id, movie_id) values(5, 'good', 2, 3);
+insert into Reviews(score, comment, member_id, movie_id) values(5, 'good', 2, 4);
+insert into Reviews(score, comment, member_id, movie_id) values(5, 'good', 2, 5);
+
+insert into Reviews(score, comment, member_id, movie_id) values(5, 'good', 3, 1);
+insert into Reviews(score, comment, member_id, movie_id) values(4, 'good', 3, 2);
+insert into Reviews(score, comment, member_id, movie_id) values(1, 'good', 3, 3);
+insert into Reviews(score, comment, member_id, movie_id) values(4, 'good', 3, 4);
+insert into Reviews(score, comment, member_id, movie_id) values(5, 'good', 3, 5);
 
 // Theater data
 insert into Theaters(floor, name, row_count, column_count) values(1, '1관', 8, 10);
 insert into Theaters(floor, name, row_count, column_count) values(2, '2관', 8, 10);
 
 // Seat data
-insert into Seats(row_no, column_no, possibility, theater_id) values(1, 1, 0, 1);
-insert into Seats(row_no, column_no, possibility, theater_id) values(1, 2, 0, 1);
-insert into Seats(row_no, column_no, possibility, theater_id) values(1, 3, 0, 1);
-insert into Seats(row_no, column_no, possibility, theater_id) values(1, 4, 0, 1);
-insert into Seats(row_no, column_no, possibility, theater_id) values(1, 5, 0, 1);
-insert into Seats(row_no, column_no, possibility, theater_id) values(1, 6, 0, 1);
+insert into Seats(row_no, column_no, possibility, price, type, theater_id) values(1, 1, 0, 10000, 'BASIC', 1);
+insert into Seats(row_no, column_no, possibility, price, type, theater_id) values(1, 2, 0, 10000, 'BASIC', 1);
+insert into Seats(row_no, column_no, possibility, price, type, theater_id) values(1, 3, 0, 10000, 'BASIC', 1);
+insert into Seats(row_no, column_no, possibility, price, type, theater_id) values(1, 4, 0, 10000, 'BASIC', 1);
+insert into Seats(row_no, column_no, possibility, price, type, theater_id) values(1, 5, 0, 10000, 'BASIC', 1);
+insert into Seats(row_no, column_no, possibility, price, type, theater_id) values(2, 1, 0, 10000, 'BASIC', 1);
+insert into Seats(row_no, column_no, possibility, price, type, theater_id) values(2, 2, 0, 10000, 'BASIC', 1);
+insert into Seats(row_no, column_no, possibility, price, type, theater_id) values(2, 3, 0, 10000, 'BASIC', 1);
+insert into Seats(row_no, column_no, possibility, price, type, theater_id) values(2, 4, 0, 10000, 'BASIC', 1);
+insert into Seats(row_no, column_no, possibility, price, type, theater_id) values(2, 5, 0, 10000, 'BASIC', 1);
 
-insert into Seats(row_no, column_no, possibility, theater_id) values(1, 1, 0, 2);
-insert into Seats(row_no, column_no, possibility, theater_id) values(1, 2, 0, 2);
-insert into Seats(row_no, column_no, possibility, theater_id) values(1, 3, 0, 2);
-insert into Seats(row_no, column_no, possibility, theater_id) values(1, 4, 0, 2);
-insert into Seats(row_no, column_no, possibility, theater_id) values(1, 5, 0, 2);
-insert into Seats(row_no, column_no, possibility, theater_id) values(1, 6, 0, 2);
+
+insert into Seats(row_no, column_no, possibility, price, type, theater_id) values(1, 1, 0, 10000, 'BASIC', 2);
+insert into Seats(row_no, column_no, possibility, price, type, theater_id) values(1, 2, 0, 10000, 'BASIC', 2);
+insert into Seats(row_no, column_no, possibility, price, type, theater_id) values(1, 3, 0, 10000, 'BASIC', 2);
+insert into Seats(row_no, column_no, possibility, price, type, theater_id) values(1, 4, 0, 10000, 'BASIC', 2);
+insert into Seats(row_no, column_no, possibility, price, type, theater_id) values(1, 5, 0, 10000, 'BASIC', 2);
+insert into Seats(row_no, column_no, possibility, price, type, theater_id) values(2, 1, 0, 10000, 'BASIC', 2);
+insert into Seats(row_no, column_no, possibility, price, type, theater_id) values(2, 2, 0, 10000, 'BASIC', 2);
+insert into Seats(row_no, column_no, possibility, price, type, theater_id) values(2, 3, 0, 10000, 'BASIC', 2);
+insert into Seats(row_no, column_no, possibility, price, type, theater_id) values(2, 4, 0, 10000, 'BASIC', 2);
+insert into Seats(row_no, column_no, possibility, price, type, theater_id) values(2, 5, 0, 10000, 'BASIC', 2);
+
+// Running data
+insert into Running(start_time, end_time, movie_id, theater_id) values('2022-05-20', '2022-05-20 02:00:00', 1, 1);
+insert into Running(start_time, end_time, movie_id, theater_id) values('2022-05-21', '2022-05-21 02:00:00', 1, 1);
+insert into Running(start_time, end_time, movie_id, theater_id) values('2022-05-22', '2022-05-22 02:00:00', 1, 1);
+insert into Running(start_time, end_time, movie_id, theater_id) values('2022-05-23', '2022-05-23 02:00:00', 1, 1);
+insert into Running(start_time, end_time, movie_id, theater_id) values('2022-05-24', '2022-05-24 02:00:00', 1, 1);
+
+insert into Running(start_time, end_time, movie_id, theater_id) values('2022-05-20', '2022-05-20 02:00:00', 2, 1);
+insert into Running(start_time, end_time, movie_id, theater_id) values('2022-05-21', '2022-05-21 02:00:00', 2, 1);
+insert into Running(start_time, end_time, movie_id, theater_id) values('2022-05-22', '2022-05-22 02:00:00', 2, 1);
+insert into Running(start_time, end_time, movie_id, theater_id) values('2022-05-23', '2022-05-23 02:00:00', 2, 1);
+insert into Running(start_time, end_time, movie_id, theater_id) values('2022-05-24', '2022-05-24 02:00:00', 2, 1);
+
+insert into Running(start_time, end_time, movie_id, theater_id) values('2022-05-20', '2022-05-20 02:00:00', 3, 1);
+insert into Running(start_time, end_time, movie_id, theater_id) values('2022-05-21', '2022-05-21 02:00:00', 3, 1);
+insert into Running(start_time, end_time, movie_id, theater_id) values('2022-05-22', '2022-05-22 02:00:00', 3, 1);
+insert into Running(start_time, end_time, movie_id, theater_id) values('2022-05-23', '2022-05-23 02:00:00', 3, 1);
+insert into Running(start_time, end_time, movie_id, theater_id) values('2022-05-24', '2022-05-24 02:00:00', 3, 1);
+
+// Ticket data
+insert into Tickets(status, price, member_id, running_id) values(0, 10000, 1, 2);
+insert into Tickets(status, price, member_id, running_id) values(0, 10000, 1, 4);
+insert into Tickets(status, price, member_id, running_id) values(0, 10000, 1, 6);
+insert into Tickets(status, price, member_id, running_id) values(0, 10000, 1, 8);
+insert into Tickets(status, price, member_id, running_id) values(0, 10000, 1, 10);
+
+insert into Tickets(status, price, member_id, running_id) values(0, 10000, 2, 1);
+insert into Tickets(status, price, member_id, running_id) values(0, 10000, 2, 3);
+insert into Tickets(status, price, member_id, running_id) values(0, 10000, 2, 5);
+insert into Tickets(status, price, member_id, running_id) values(0, 10000, 2, 7);
+insert into Tickets(status, price, member_id, running_id) values(0, 10000, 2, 9);
+
+insert into Tickets(status, price, member_id, running_id) values(0, 10000, 3, 11);
+insert into Tickets(status, price, member_id, running_id) values(0, 10000, 3, 12);
+insert into Tickets(status, price, member_id, running_id) values(0, 10000, 3, 13);
+insert into Tickets(status, price, member_id, running_id) values(0, 10000, 3, 14);
+insert into Tickets(status, price, member_id, running_id) values(0, 10000, 3, 15);
+
+insert into Tickets(status, price, member_id, running_id) values(0, 10000, 1, 1);
+insert into Tickets(status, price, member_id, running_id) values(0, 10000, 1, 3);
+insert into Tickets(status, price, member_id, running_id) values(0, 10000, 1, 5);
+insert into Tickets(status, price, member_id, running_id) values(0, 10000, 1, 7);
+insert into Tickets(status, price, member_id, running_id) values(0, 10000, 1, 9);
