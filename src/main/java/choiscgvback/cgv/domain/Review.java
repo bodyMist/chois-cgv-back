@@ -1,8 +1,11 @@
 package choiscgvback.cgv.domain;
 
+import lombok.Getter;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+@Getter
 @Entity(name = "REVIEWS")
 public class Review {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
