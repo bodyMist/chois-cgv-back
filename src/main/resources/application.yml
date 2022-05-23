@@ -1,3 +1,6 @@
+logging:
+    level:
+        root: info
 spring:
     messages:
         basename: errors
@@ -11,7 +14,7 @@ spring:
         driver-class-name: org.h2.Driver
     jpa:
         hibernate:
-            ddl-auto: create
+            ddl-auto: update
         properties:
             hibernate:
                 show_sql: true
