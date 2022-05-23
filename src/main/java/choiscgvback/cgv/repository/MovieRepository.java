@@ -3,6 +3,7 @@ package choiscgvback.cgv.repository;
 import choiscgvback.cgv.domain.Movie;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
+import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -11,7 +12,9 @@ import java.util.List;
 import java.util.Optional;
 
 public interface MovieRepository extends JpaRepository<Movie, Long> {
+    @EntityGraph(value = "movie_with_running_and_reviews")
     List<Movie> findAll();
+
     Optional<Movie> findById(Long id);
 
     // 메인페이지, 현재 상영중인 영화를 평점 내림차순으로 조회, page_size=5
