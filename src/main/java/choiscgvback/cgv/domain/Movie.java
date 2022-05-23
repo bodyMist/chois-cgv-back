@@ -8,8 +8,14 @@ import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 
-@NamedEntityGraph(name = "movie_with_running",attributeNodes = @NamedAttributeNode("runningList"))
+@NamedEntityGraph(
+        name = "movie_with_running_and_reviews",
+        attributeNodes = {
+                @NamedAttributeNode("reviews"),
+        }
+        )
 @Getter
 @Entity(name = "MOVIES")
 public class Movie {
@@ -37,4 +43,8 @@ public class Movie {
 
     @OneToMany(mappedBy = "movie")
     private List<Running> runningList = new ArrayList<>();
+
+    public float getScore() {
+        return (float) (reviews.stream().mapToInt(Review::getScore).sum()) / reviews.size();
+    }
 }
