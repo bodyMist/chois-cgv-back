@@ -44,6 +44,9 @@ public class Movie {
     @OneToMany(mappedBy = "movie")
     private List<Running> runningList = new ArrayList<>();
 
+    @OneToMany(mappedBy = "movie")
+    private List<MovieWorker> movieWorkers = new ArrayList<>();
+
     public float getScore() {
         return (float) (reviews.stream().mapToInt(Review::getScore).sum()) / reviews.size();
     }
