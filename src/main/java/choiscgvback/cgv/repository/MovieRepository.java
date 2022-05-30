@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
-public interface MovieRepository extends JpaRepository<Movie, Long> {
+public interface MovieRepository extends JpaRepository<Movie, Long>, MovieCustomRepository {
     @EntityGraph(value = "movie_with_running_and_reviews")
     List<Movie> findAll();
 
