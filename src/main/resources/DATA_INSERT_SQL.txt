@@ -103,3 +103,35 @@ insert into Tickets(status, price, member_id, running_id) values(0, 10000, 1, 3)
 insert into Tickets(status, price, member_id, running_id) values(0, 10000, 1, 5);
 insert into Tickets(status, price, member_id, running_id) values(0, 10000, 1, 7);
 insert into Tickets(status, price, member_id, running_id) values(0, 10000, 1, 9);
+
+// Worker Data
+insert into Workers(name, birth, nationality, dtype) values('이명박', '1978-10-22', '한국', 'A');
+insert into Workers(name, birth, nationality, dtype) values('박근혜', '1975-03-29', '한국', 'A');
+insert into Workers(name, birth, nationality, dtype) values('문재인', '1968-07-02', '한국', 'A');
+insert into Workers(name, birth, nationality, dtype) values('FGO', '1993-06-22', '한국', 'A');
+insert into Workers(name, birth, nationality, dtype) values('Archive', '1978-10-22', '한국', 'A');
+insert into Workers(name, birth, nationality, dtype) values('Proseka', '1978-10-22', '한국', 'A');
+insert into Workers(name, birth, nationality, dtype) values('Kantai', '1978-10-22', '한국', 'A');
+insert into Workers(name, birth, nationality, dtype) values('Azurlane', '1978-10-22', '한국', 'A');
+
+// MovieWorker data
+insert into Movies_Workers(movie_id, worker_id) values(1,1);
+insert into Movies_Workers(movie_id, worker_id) values(1,2);
+insert into Movies_Workers(movie_id, worker_id) values(1,3);
+
+insert into movies_workers(movie_id, worker_id) values(2,1);
+insert into movies_workers(movie_id, worker_id) values(2,2);
+insert into movies_workers(movie_id, worker_id) values(2,3);
+
+insert into movies_workers(movie_id, worker_id) values(3,2);
+insert into movies_workers(movie_id, worker_id) values(3,5);
+insert into movies_workers(movie_id, worker_id) values(3,7);
+
+insert into movies_workers(movie_id, worker_id) values(4,4);
+insert into movies_workers(movie_id, worker_id) values(4,5);
+insert into movies_workers(movie_id, worker_id) values(4,6);
+
+insert into movies_workers(movie_id, worker_id) values(5,3);
+insert into movies_workers(movie_id, worker_id) values(5,7);
+insert into movies_workers(movie_id, worker_id) values(5,8);
+
