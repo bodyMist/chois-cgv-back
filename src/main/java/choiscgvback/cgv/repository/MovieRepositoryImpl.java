@@ -5,7 +5,6 @@ import choiscgvback.cgv.domain.QMovie;
 import choiscgvback.cgv.domain.QMovieWorker;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -14,8 +13,6 @@ import java.util.List;
 public class MovieRepositoryImpl implements MovieCustomRepository {
     @PersistenceContext
     EntityManager em;
-
-    @Autowired
     JPAQueryFactory query = new JPAQueryFactory(em);
 
     @Override
@@ -23,8 +20,7 @@ public class MovieRepositoryImpl implements MovieCustomRepository {
         QMovie movie = QMovie.movie;
 
         return query
-                .select(movie)
-                .from(movie)
+                .selectFrom(movie)
                 .where(containMovieName(title))
                 .fetch();
     }
@@ -32,8 +28,14 @@ public class MovieRepositoryImpl implements MovieCustomRepository {
     @Override
     public List<Movie> findByActor(String actor) {
         QMovie movie = QMovie.movie;
+        QMovieWorker movieWorker = QMovieWorker.movieWorker;
 
-        return null;
+        return query
+                .selectFrom(movie)
+                .innerJoin(movie.movieWorkers)
+                .leftJoin(movieWorker.worker)
+                .on(containActorName(actor))
+                .fetch();
     }
 
 
@@ -41,6 +43,6 @@ public class MovieRepositoryImpl implements MovieCustomRepository {
         return name == null || name.isEmpty() ? null : QMovie.movie.name.contains(name);
     }
     private BooleanExpression containActorName(String name){
-        return name == null || name.isEmpty() ? null : null;
+        return name == null || name.isEmpty() ? null : QMovieWorker.movieWorker.worker.name.contains(name);
     }
 }

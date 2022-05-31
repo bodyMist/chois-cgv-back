@@ -48,10 +48,15 @@ public class MovieRepositoryTest {
 
     @Test
     void QueryDSL_테스트(){
-        QMovie movie = QMovie.movie;
-        JPAQueryFactory query = new JPAQueryFactory(em);
-        List<Movie> movies = query.select(movie).from(movie).fetch();
-        movies.stream().forEach(o -> {
+        String actorName = "FGO";
+        String movieName = "범죄";
+        List<Movie> movies = movieRepository.findByTitle(movieName);
+        movies.stream().forEach(o->{
+            System.out.println(o.getName());
+        });
+
+        movies = movieRepository.findByActor(actorName);
+        movies.stream().forEach(o->{
             System.out.println(o.getName());
         });
     }
