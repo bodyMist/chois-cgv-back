@@ -6,7 +6,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public class MovieStatisticDto {
-    private boolean memberSex;
-    private int ageGroup;
-    private int count;
+    private final boolean memberSex;
+    private final int ageGroup;
+    private final int count;
 }
