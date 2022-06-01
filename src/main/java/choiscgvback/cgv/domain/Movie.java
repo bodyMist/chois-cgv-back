@@ -10,12 +10,21 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
 
-@NamedEntityGraph(
-        name = "movie_with_running_and_reviews",
-        attributeNodes = {
-                @NamedAttributeNode("reviews"),
-        }
+
+@NamedEntityGraphs(value = {
+        @NamedEntityGraph(
+                name = "movie_with_running_and_reviews",
+                attributeNodes = {
+                        @NamedAttributeNode("reviews"),
+                }
+        ),
+        @NamedEntityGraph(
+                name = "movie_with_workers",
+                attributeNodes = {
+                        @NamedAttributeNode("movieWorkers")
+                }
         )
+})
 @Getter
 @Entity(name = "MOVIES")
 public class Movie {

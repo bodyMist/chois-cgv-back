@@ -18,8 +18,7 @@ import java.util.Optional;
 @SpringBootTest
 public class MovieRepositoryTest {
     @Autowired private MovieRepository movieRepository;
-    @PersistenceContext
-    EntityManager em;
+    @Autowired EntityManager em;
 
     @Test
     void 영화_상영_그래프_탐색(){
@@ -47,17 +46,12 @@ public class MovieRepositoryTest {
     }
 
     @Test
-    void QueryDSL_테스트(){
-        String actorName = "FGO";
-        String movieName = "범죄";
-        List<Movie> movies = movieRepository.findByTitle(movieName);
-        movies.stream().forEach(o->{
-            System.out.println(o.getName());
+    void QueryDSL_findByActor_테스트(){
+        String actorName = "이명";
+        List<Movie> movies = movieRepository.findByActor(actorName);
+        movies.forEach(o->{
+            System.out.println(o.getName() + "/" + o.getMovieWorkers());
         });
 
-        movies = movieRepository.findByActor(actorName);
-        movies.stream().forEach(o->{
-            System.out.println(o.getName());
-        });
     }
 }

@@ -3,22 +3,26 @@ package choiscgvback.cgv.repository;
 import choiscgvback.cgv.domain.Movie;
 import choiscgvback.cgv.domain.QMovie;
 import choiscgvback.cgv.domain.QMovieWorker;
+import choiscgvback.cgv.domain.QWorker;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;
+import org.springframework.data.jpa.repository.EntityGraph;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
-public class MovieRepositoryImpl implements MovieCustomRepository {
+@Repository
+public class MovieCustomRepositoryImpl implements MovieCustomRepository {
     @PersistenceContext
     EntityManager em;
-    JPAQueryFactory query = new JPAQueryFactory(em);
 
     @Override
     public List<Movie> findByTitle(String title) {
         QMovie movie = QMovie.movie;
 
+        JPAQueryFactory query = new JPAQueryFactory(em);
         return query
                 .selectFrom(movie)
                 .where(containMovieName(title))
@@ -29,12 +33,17 @@ public class MovieRepositoryImpl implements MovieCustomRepository {
     public List<Movie> findByActor(String actor) {
         QMovie movie = QMovie.movie;
         QMovieWorker movieWorker = QMovieWorker.movieWorker;
+        QWorker worker = QWorker.worker;
+
+        JPAQueryFactory query = new JPAQueryFactory(em);
 
         return query
                 .selectFrom(movie)
-                .innerJoin(movie.movieWorkers)
-                .leftJoin(movieWorker.worker)
-                .on(containActorName(actor))
+                .leftJoin(movie.movieWorkers, movieWorker)
+                .fetchJoin()
+                .leftJoin(movieWorker.worker, worker)
+                .fetchJoin()
+                .where(containActorName(actor))
                 .fetch();
     }
 
