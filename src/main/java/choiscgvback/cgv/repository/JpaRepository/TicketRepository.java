@@ -1,4 +1,4 @@
-package choiscgvback.cgv.repository;
+package choiscgvback.cgv.repository.JpaRepository;
 
 import choiscgvback.cgv.domain.Ticket;
 import choiscgvback.cgv.dto.MovieStatisticDto;

@@ -1,6 +1,7 @@
-package choiscgvback.cgv.repository;
+package choiscgvback.cgv.repository.JpaRepository;
 
 import choiscgvback.cgv.domain.Movie;
+import choiscgvback.cgv.repository.CustomRepository.MovieCustomRepository;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
 import org.springframework.data.jpa.repository.EntityGraph;

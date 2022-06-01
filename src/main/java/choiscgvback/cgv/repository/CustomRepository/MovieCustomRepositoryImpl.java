@@ -1,4 +1,4 @@
-package choiscgvback.cgv.repository;
+package choiscgvback.cgv.repository.CustomRepository;
 
 import choiscgvback.cgv.domain.Movie;
 import choiscgvback.cgv.domain.QMovie;
@@ -6,7 +6,6 @@ import choiscgvback.cgv.domain.QMovieWorker;
 import choiscgvback.cgv.domain.QWorker;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;
-import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;

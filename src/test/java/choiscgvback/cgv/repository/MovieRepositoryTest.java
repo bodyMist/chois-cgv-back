@@ -1,15 +1,13 @@
 package choiscgvback.cgv.repository;
 
 import choiscgvback.cgv.domain.Movie;
-import choiscgvback.cgv.domain.QMovie;
-import com.querydsl.jpa.impl.JPAQueryFactory;
+import choiscgvback.cgv.repository.JpaRepository.MovieRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;

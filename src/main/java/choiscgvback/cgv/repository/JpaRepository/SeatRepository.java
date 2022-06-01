@@ -1,4 +1,4 @@
-package choiscgvback.cgv.repository;
+package choiscgvback.cgv.repository.JpaRepository;
 
 import choiscgvback.cgv.domain.Seat;
 import org.springframework.data.jpa.repository.JpaRepository;

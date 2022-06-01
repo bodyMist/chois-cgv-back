@@ -1,7 +1,7 @@
 package choiscgvback.cgv.service;
 
 import choiscgvback.cgv.domain.Member;
-import choiscgvback.cgv.repository.MemberRepository;
+import choiscgvback.cgv.repository.JpaRepository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

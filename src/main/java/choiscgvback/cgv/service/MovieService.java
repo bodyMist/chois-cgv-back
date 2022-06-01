@@ -1,7 +1,7 @@
 package choiscgvback.cgv.service;
 
 import choiscgvback.cgv.domain.Movie;
-import choiscgvback.cgv.repository.MovieRepository;
+import choiscgvback.cgv.repository.JpaRepository.MovieRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;

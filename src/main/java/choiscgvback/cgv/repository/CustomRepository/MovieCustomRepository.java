@@ -1,4 +1,4 @@
-package choiscgvback.cgv.repository;
+package choiscgvback.cgv.repository.CustomRepository;
 
 import choiscgvback.cgv.domain.Movie;
 
