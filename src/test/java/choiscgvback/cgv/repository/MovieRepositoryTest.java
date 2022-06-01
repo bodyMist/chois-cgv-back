@@ -21,7 +21,7 @@ public class MovieRepositoryTest {
     @Test
     void 영화_상영_그래프_탐색(){
         List<Movie> movie = movieRepository.findAll();
-        movie.forEach(o -> System.out.println(o.getName() + " " + o.getRunningList()));
+        movie.forEach(o -> System.out.println(o.getTitle() + " " + o.getRunningList()));
     }
     @Test
     void 메인페이지_영화출력_테스트(){
@@ -39,7 +39,7 @@ public class MovieRepositoryTest {
     void 영화_평점순_정렬(){
         List<Movie> movies = movieRepository.findAll();
         movies.stream().forEach(o -> {
-            System.out.println(o.getName() + " " + o.getScore());
+            System.out.println(o.getTitle() + " " + o.getScore());
         });
     }
 
@@ -48,7 +48,7 @@ public class MovieRepositoryTest {
         String actorName = "이명";
         List<Movie> movies = movieRepository.findByActor(actorName);
         movies.forEach(o->{
-            System.out.println(o.getName() + "/" + o.getMovieWorkers());
+            System.out.println(o.getTitle() + "/" + o.getMovieWorkers());
         });
 
     }

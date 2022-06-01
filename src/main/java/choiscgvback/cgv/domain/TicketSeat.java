@@ -1,6 +1,7 @@
 package choiscgvback.cgv.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class TicketSeat {
@@ -14,4 +15,7 @@ public class TicketSeat {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "SEAT_ID")
     private Seat seat;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "RUNNING_ID")
+    private Running running;
 }

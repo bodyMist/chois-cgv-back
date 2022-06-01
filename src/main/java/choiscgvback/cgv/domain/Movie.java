@@ -32,7 +32,7 @@ public class Movie {
     @Column(name = "MOVIE_ID", nullable = false)
     private Long id;
     @NotNull
-    private String name;
+    private String title;
 
     @Enumerated(EnumType.STRING)
     private Genre genre;

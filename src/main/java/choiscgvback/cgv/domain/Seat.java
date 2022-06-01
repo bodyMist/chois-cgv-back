@@ -13,8 +13,6 @@ public class Seat {
     @NotNull
     private Integer columnNo;
     @NotNull
-    private Boolean possibility;    // 0: 사용가능 1: 사용불가능
-    @NotNull
     private Integer price;
     @NotNull
     @Enumerated(EnumType.STRING)
@@ -23,8 +21,4 @@ public class Seat {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "THEATER_ID")
     private Theater theater;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "RUNNING_ID")
-    private Running running;
 }

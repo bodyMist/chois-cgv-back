@@ -48,7 +48,7 @@ public class MovieCustomRepositoryImpl implements MovieCustomRepository {
 
 
     private BooleanExpression containMovieName(String name){
-        return name == null || name.isEmpty() ? null : QMovie.movie.name.contains(name);
+        return name == null || name.isEmpty() ? null : QMovie.movie.title.contains(name);
     }
     private BooleanExpression containActorName(String name){
         return name == null || name.isEmpty() ? null : QMovieWorker.movieWorker.worker.name.contains(name);
