@@ -4,6 +4,8 @@ import lombok.Getter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Entity(name = "REVIEWS")
@@ -23,4 +25,7 @@ public class Review {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "MOVIE_ID")
     private Movie movie;
+
+    @OneToMany(mappedBy = "review")
+    private List<Like> likes = new ArrayList<>();
 }
