@@ -40,6 +40,9 @@ dependencies {
 	//querydsl 추가
 	implementation 'com.querydsl:querydsl-apt'
 
+	// https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui
+	implementation 'io.springfox:springfox-boot-starter:3.0.0'
+	implementation group: 'io.springfox', name: 'springfox-swagger2', version: '3.0.0'
 }
 def querydslDir = "$buildDir/generated/querydsl"
 
