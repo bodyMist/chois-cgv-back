@@ -1,19 +1,30 @@
 package choiscgvback.cgv.domain;
 
 import lombok.Getter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
-@NamedEntityGraph(
-        name = "member-with-reviews",
-        attributeNodes = {
-                @NamedAttributeNode("reviews")
-        }
-)
+@NamedEntityGraphs(value = {
+        @NamedEntityGraph(
+                name = "member-with-reviews",
+                attributeNodes = {
+                        @NamedAttributeNode("reviews")
+                }
+        ),
+        @NamedEntityGraph(
+                name = "member-with-tickets",
+                attributeNodes = {
+                        @NamedAttributeNode("tickets")
+                }
+        )
+})
+
 @Entity(name = "MEMBERS")
 @Getter
+@ToString
 public class Member{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,4 +45,6 @@ public class Member{
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.REMOVE)
     private List<Review> reviews = new ArrayList<>();
+    @OneToMany(mappedBy = "member", cascade = CascadeType.REMOVE)
+    private List<Ticket> tickets = new ArrayList<>();
 }
