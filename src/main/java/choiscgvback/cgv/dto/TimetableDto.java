@@ -12,14 +12,14 @@ import java.time.LocalDateTime;
 @Getter
 @AllArgsConstructor
 public class TimetableDto {
-    // 상영등급, 제목, 장르, 런타임, 개봉일, 상영관/층, 상영관의 총좌석과 잔여좌석
+    // 상영등급, 제목, 장르, 런타임, 개봉일, 시작날짜시간, 상영관 이름/층, 잔여좌석
     private final MovieRating movieRating;
     private final String title;
     private final Genre genre;
-    private final Integer runningTime;
+    private final int runningTime;
     private final LocalDateTime releaseDate;
+    private final LocalDateTime startTime;
     private final String name;
-    private final Integer floor;
-//    private final Integer totalSeat;
-//    private final Integer leftSeat;
+    private final int floor;
+    private final long count;
 }

@@ -19,10 +19,12 @@ public interface RunningRepository extends JpaRepository<Running, Long> {
     // 상영등급, 제목, 장르, 런타임, 개봉일, 상영관/층, 상영관의 총좌석과 잔여좌석
     @Query("SELECT DISTINCT new choiscgvback.cgv.dto.TimetableDto" +
             "(m.movieRating, m.title, m.genre, m.runningTime, " +
-            "m.releaseDate, t.name, t.floor)" +
+            "m.releaseDate, r.startTime, t.name, t.floor, count(r))" +
             "FROM Running r " +
             "LEFT JOIN MOVIES m ON r.movie.id = m.id " +
-            "LEFT JOIN THEATERS t ON r.theater.id = t.id ")
+            "LEFT JOIN THEATERS t ON r.theater.id = t.id " +
+            "INNER JOIN TicketSeat ts ON ts.running.id = r.id " +
+            "GROUP BY r.id")
     List<TimetableDto> findByStartTimeBetween(LocalDateTime start, LocalDateTime end);
 
     // 예매페이지, 영화와 날짜를 토대로 모든 상영 가져오기
