@@ -13,7 +13,7 @@ import java.util.stream.IntStream;
 
 @NamedEntityGraphs(value = {
         @NamedEntityGraph(
-                name = "movie_with_running_and_reviews",
+                name = "movie_with_reviews",
                 attributeNodes = {
                         @NamedAttributeNode("reviews"),
                 }
