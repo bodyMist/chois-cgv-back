@@ -1,4 +1,4 @@
-package choiscgvback.cgv.dto;
+package choiscgvback.cgv.model;
 
 public interface DiscountPolicy {
     int discount(int price);

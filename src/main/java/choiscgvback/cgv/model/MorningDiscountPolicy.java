@@ -1,4 +1,4 @@
-package choiscgvback.cgv.dto;
+package choiscgvback.cgv.model;
 
 public class MorningDiscountPolicy implements FixDiscountPolicy{
     @Override
