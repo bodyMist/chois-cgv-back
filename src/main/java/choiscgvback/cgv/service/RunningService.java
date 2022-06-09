@@ -23,9 +23,6 @@ public class RunningService implements BaseService{
     }
 
     // 예매 단계, 특정 영화에 대한 모든 상영시간표(running)
-
-
-    // 예매 단계, 특정 영화&상영관에 대한 상영시간표(running)
     public List<TimetableDto> getRunning(Long movieId){
         List<TimetableDto> timetableList = runningRepository.findByMovie_IdAndStartTimeAfter(movieId, LocalDateTime.now());
         return timetableList;
