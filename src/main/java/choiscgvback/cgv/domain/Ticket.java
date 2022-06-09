@@ -19,4 +19,10 @@ public class Ticket {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "MEMBER_ID")
     private Member member;
+
+    public Ticket(Boolean status, Integer price, Member member) {
+        this.status = status;
+        this.price = price;
+        this.member = member;
+    }
 }

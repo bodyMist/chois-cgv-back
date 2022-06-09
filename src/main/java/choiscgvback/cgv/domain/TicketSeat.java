@@ -1,9 +1,12 @@
 package choiscgvback.cgv.domain;
 
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
+@NoArgsConstructor
 public class TicketSeat {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "TICKET_SEAT_ID")
@@ -18,4 +21,10 @@ public class TicketSeat {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "RUNNING_ID")
     private Running running;
+
+    public TicketSeat(Ticket ticket, Seat seat, Running running) {
+        this.ticket = ticket;
+        this.seat = seat;
+        this.running = running;
+    }
 }
