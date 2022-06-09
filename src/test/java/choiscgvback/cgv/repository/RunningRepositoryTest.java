@@ -18,6 +18,14 @@ public class RunningRepositoryTest {
     @Autowired private RunningRepository runningRepository;
 
     @Test
+    void 예매시간표_테스트(){
+        List<TimetableDto> runningList = runningRepository
+                .findByMovie_IdAndStartTimeAfter(1L, LocalDateTime.now());
+        runningList.forEach(o->{
+            System.out.println(o.toString());
+        });
+    }
+    @Test
     void 상영시간표_테스트(){
         LocalDate start = LocalDate.of(2022,05,22);
         List<TimetableDto> runningList = runningRepository.findByStartTimeBetween(start.atStartOfDay(), start.plusDays(1).atStartOfDay());

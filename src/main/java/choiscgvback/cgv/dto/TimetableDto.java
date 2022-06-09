@@ -22,4 +22,6 @@ public class TimetableDto {
     private final String name;
     private final int floor;
     private final long count;
+    private final int rowCount;
+    private final int columnCount;
 }
