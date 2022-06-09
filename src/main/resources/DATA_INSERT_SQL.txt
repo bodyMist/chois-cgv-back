@@ -62,20 +62,20 @@ insert into Seats(row_no, column_no, price, type, theater_id) values(2, 5, 10000
 
 // Running data
 insert into Running(start_time, end_time, movie_id, theater_id) values(dateadd(day,-1,current_date) , dateadd(minute, select m.running_time from movies m where movie_id = 1, dateadd(day,-1,current_date)), 1, 1);
-insert into Running(start_time, end_time, movie_id, theater_id) values(dateadd(hour,-12,current_time), dateadd(minute, select m.running_time from movies m where movie_id = 1, dateadd(hour,-12,current_time)), 1, 1);
-insert into Running(start_time, end_time, movie_id, theater_id) values(dateadd(minute,-120,current_time), dateadd(minute, select m.running_time from movies m where movie_id = 1, dateadd(minute,-120,current_time)), 1, 1);
+insert into Running(start_time, end_time, movie_id, theater_id) values(dateadd(hour,12,current_time), dateadd(minute, select m.running_time from movies m where movie_id = 1, dateadd(hour,12,current_time)), 1, 1);
+insert into Running(start_time, end_time, movie_id, theater_id) values(dateadd(minute,120,current_time), dateadd(minute, select m.running_time from movies m where movie_id = 1, dateadd(minute,120,current_time)), 1, 1);
 insert into Running(start_time, end_time, movie_id, theater_id) values(current_time, dateadd(minute, select m.running_time from movies m where movie_id = 1, current_time), 1, 1);
 insert into Running(start_time, end_time, movie_id, theater_id) values(dateadd(hour,6,current_time), dateadd(minute, select m.running_time from movies m where movie_id = 1, dateadd(hour,6,current_time)), 1, 1);
 
 insert into Running(start_time, end_time, movie_id, theater_id) values(dateadd(day,-1,current_date) , dateadd(minute, select m.running_time from movies m where movie_id = 1, dateadd(day,-1,current_date)), 2, 1);
-insert into Running(start_time, end_time, movie_id, theater_id) values(dateadd(hour,-12,current_time), dateadd(minute, select m.running_time from movies m where movie_id = 1, dateadd(hour,-12,current_time)), 2, 1);
-insert into Running(start_time, end_time, movie_id, theater_id) values(dateadd(minute,-120,current_time), dateadd(minute, select m.running_time from movies m where movie_id = 1, dateadd(minute,-120,current_time)), 2, 1);
+insert into Running(start_time, end_time, movie_id, theater_id) values(dateadd(hour,12,current_time), dateadd(minute, select m.running_time from movies m where movie_id = 1, dateadd(hour,12,current_time)), 2, 1);
+insert into Running(start_time, end_time, movie_id, theater_id) values(dateadd(minute,120,current_time), dateadd(minute, select m.running_time from movies m where movie_id = 1, dateadd(minute,120,current_time)), 2, 1);
 insert into Running(start_time, end_time, movie_id, theater_id) values(current_time, dateadd(minute, select m.running_time from movies m where movie_id = 1, current_time), 2, 1);
 insert into Running(start_time, end_time, movie_id, theater_id) values(dateadd(hour,6,current_time), dateadd(minute, select m.running_time from movies m where movie_id = 1, dateadd(hour,6,current_time)), 2, 1);
 
 insert into Running(start_time, end_time, movie_id, theater_id) values(dateadd(day,-1,current_date) , dateadd(minute, select m.running_time from movies m where movie_id = 1, dateadd(day,-1,current_date)), 3, 1);
-insert into Running(start_time, end_time, movie_id, theater_id) values(dateadd(hour,-12,current_time), dateadd(minute, select m.running_time from movies m where movie_id = 1, dateadd(hour,-12,current_time)), 3, 1);
-insert into Running(start_time, end_time, movie_id, theater_id) values(dateadd(minute,-120,current_time), dateadd(minute, select m.running_time from movies m where movie_id = 1, dateadd(minute,-120,current_time)), 3, 1);
+insert into Running(start_time, end_time, movie_id, theater_id) values(dateadd(hour,12,current_time), dateadd(minute, select m.running_time from movies m where movie_id = 1, dateadd(hour,12,current_time)), 3, 1);
+insert into Running(start_time, end_time, movie_id, theater_id) values(dateadd(minute,120,current_time), dateadd(minute, select m.running_time from movies m where movie_id = 1, dateadd(minute,120,current_time)), 3, 1);
 insert into Running(start_time, end_time, movie_id, theater_id) values(current_time, dateadd(minute, select m.running_time from movies m where movie_id = 1, current_time), 3, 1);
 insert into Running(start_time, end_time, movie_id, theater_id) values(dateadd(hour,6,current_time), dateadd(minute, select m.running_time from movies m where movie_id = 1, dateadd(hour,6,current_time)), 3, 1);
 
