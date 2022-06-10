@@ -15,7 +15,7 @@ public interface RunningRepository extends JpaRepository<Running, Long> {
     // 상영시간표 페이지, 특정 날짜(내일~4일이내)의 모든 상영데이터 가져오기
     // 상영등급, 제목, 장르, 런타임, 개봉일, 상영관/층, 상영관의 총좌석과 잔여좌석
     @Query("SELECT DISTINCT new choiscgvback.cgv.dto.TimetableDto" +
-            "(m.movieRating, m.title, m.genre, m.runningTime, " +
+            "(r.id, m.movieRating, m.title, m.genre, m.runningTime, " +
             "m.releaseDate, r.startTime, t.name, t.floor, count(r), t.rowCount, t.columnCount) " +
             "FROM Running r " +
             "LEFT JOIN MOVIES m ON r.movie.id = m.id " +
@@ -26,7 +26,7 @@ public interface RunningRepository extends JpaRepository<Running, Long> {
 
     // 예매페이지, 영화와 날짜를 토대로 모든 상영 가져오기
     @Query("SELECT DISTINCT new choiscgvback.cgv.dto.TimetableDto " +
-            "(m.movieRating, m.title, m.genre, m.runningTime, " +
+            "(r.id, m.movieRating, m.title, m.genre, m.runningTime, " +
             "m.releaseDate, r.startTime, t.name, t.floor, count(r), t.rowCount, t.columnCount) " +
             "FROM Running r " +
             "LEFT JOIN MOVIES m ON r.movie.id = m.id " +
@@ -36,4 +36,14 @@ public interface RunningRepository extends JpaRepository<Running, Long> {
             "GROUP BY r.id")
     List<TimetableDto> findByMovie_IdAndStartTimeAfter(Long movieId, LocalDateTime criteria);
 
+    // 관리자페이지, 모든 상영 계획 가져오기
+    @Query("SELECT DISTINCT new choiscgvback.cgv.dto.TimetableDto " +
+            "(r.id, m.movieRating, m.title, m.genre, m.runningTime, " +
+            "m.releaseDate, r.startTime, t.name, t.floor, count(r), t.rowCount, t.columnCount) " +
+            "FROM Running r " +
+            "LEFT JOIN MOVIES m ON r.movie.id = m.id " +
+            "LEFT JOIN THEATERS t ON r.theater.id = t.id " +
+            "INNER JOIN TicketSeat ts ON ts.running.id = r.id " +
+            "GROUP BY r.id")
+    List<TimetableDto> findAllTimetable();
 }

@@ -1,6 +1,8 @@
 package choiscgvback.cgv.service;
 
+import choiscgvback.cgv.domain.Running;
 import choiscgvback.cgv.dto.TimetableDto;
+import choiscgvback.cgv.model.DiscountPolicy;
 import choiscgvback.cgv.repository.JpaRepository.RunningRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -26,5 +28,18 @@ public class RunningService implements BaseService{
     public List<TimetableDto> getRunning(Long movieId){
         List<TimetableDto> timetableList = runningRepository.findByMovie_IdAndStartTimeAfter(movieId, LocalDateTime.now());
         return timetableList;
+    }
+
+    // 관리자 페이지, 모든 상영시간표 가져오기
+    public List<TimetableDto> getAllRunning(){
+        return runningRepository.findAllTimetable();
+    }
+
+    // 관리자 페이지, 상영시간표에 대해 할인 정책 수정하기
+    public TimetableDto updateDiscountPolicy(TimetableDto timetableDto, DiscountPolicy discountPolicy){
+        timetableDto.setDiscountPolicy(discountPolicy);
+        Running running = runningRepository.findById(timetableDto.getRunningId()).get();
+        running.setPolicy(discountPolicy);
+        return timetableDto;
     }
 }

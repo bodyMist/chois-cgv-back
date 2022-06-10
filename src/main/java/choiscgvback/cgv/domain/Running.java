@@ -1,7 +1,9 @@
 package choiscgvback.cgv.domain;
 
+import choiscgvback.cgv.model.BaseDiscountPolicy;
 import choiscgvback.cgv.model.DiscountPolicy;
 import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -10,6 +12,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Getter
+@Setter
 public class Running {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "RUNNING_ID")
