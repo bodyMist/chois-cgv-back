@@ -1,6 +1,7 @@
 package choiscgvback.cgv.dto;
 
 import choiscgvback.cgv.domain.Member;
+import choiscgvback.cgv.domain.Running;
 import lombok.Getter;
 import lombok.ToString;
 
@@ -8,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@ToString
 @Getter
 public class MypageDto {
     private final String account;
@@ -27,5 +27,16 @@ public class MypageDto {
         this.tickets = member.getTickets().stream()
         .map(ticket -> new TicketDto(ticket))
         .collect(Collectors.toList());
+    }
+    @Override
+    public String toString() {
+        return "MypageDto{" +
+                "account='" + account + '\'' +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", sex=" + sex +
+                ", type=" + type +
+                ", \n tickets=" + tickets +
+                '}';
     }
 }
