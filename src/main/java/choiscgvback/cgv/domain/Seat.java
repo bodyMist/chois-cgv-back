@@ -16,8 +16,6 @@ public class Seat {
     @NotNull
     private Integer columnNo;
     @NotNull
-    private Integer price;
-    @NotNull
     @Enumerated(EnumType.STRING)
     private SeatType type;
 

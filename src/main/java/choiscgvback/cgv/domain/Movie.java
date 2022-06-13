@@ -1,6 +1,7 @@
 package choiscgvback.cgv.domain;
 
 import lombok.Getter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -15,8 +16,13 @@ import java.util.stream.IntStream;
         @NamedEntityGraph(
                 name = "movie_with_reviews",
                 attributeNodes = {
-                        @NamedAttributeNode("reviews"),
-                }
+                        @NamedAttributeNode(value = "reviews", subgraph = "review_with_like")
+                },
+                subgraphs = @NamedSubgraph(name = "review_with_like",
+                attributeNodes = {
+                        @NamedAttributeNode("likes"),
+                        @NamedAttributeNode("member")
+                })
         ),
         @NamedEntityGraph(
                 name = "movie_with_workers",
@@ -43,7 +49,7 @@ public class Movie {
     @NotNull
     private LocalDateTime releaseDate;
 
-    private LocalDateTime modifiedDate;
+    private Integer price;
     private String summary;
     private String posterURL;
 
@@ -58,5 +64,19 @@ public class Movie {
 
     public float getScore() {
         return (float) (reviews.stream().mapToInt(Review::getScore).sum()) / reviews.size();
+    }
+
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", genre=" + genre +
+                ", movieRating=" + movieRating +
+                ", runningTime=" + runningTime +
+                ", price=" + price +
+                ", posterURL='" + posterURL + '\'' +
+                ", \n reviews=" + reviews.toString() +
+                '}';
     }
 }

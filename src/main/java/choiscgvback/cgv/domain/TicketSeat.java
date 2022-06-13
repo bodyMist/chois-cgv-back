@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+@NamedEntityGraph(name = "ticketseat-with-seat", attributeNodes = @NamedAttributeNode("seat"))
 @Entity
 @NoArgsConstructor
 public class TicketSeat {
@@ -18,13 +19,9 @@ public class TicketSeat {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "SEAT_ID")
     private Seat seat;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "RUNNING_ID")
-    private Running running;
 
-    public TicketSeat(Ticket ticket, Seat seat, Running running) {
+    public TicketSeat(Ticket ticket, Seat seat) {
         this.ticket = ticket;
         this.seat = seat;
-        this.running = running;
     }
 }
