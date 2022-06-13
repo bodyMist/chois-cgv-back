@@ -1,6 +1,7 @@
 package choiscgvback.cgv.repository;
 
 import choiscgvback.cgv.domain.Movie;
+import choiscgvback.cgv.dto.MoviePreviewDto;
 import choiscgvback.cgv.repository.JpaRepository.MovieRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +9,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,15 +24,19 @@ public class MovieRepositoryTest {
         movie.forEach(o -> System.out.println(o.getTitle() + " " + o.getRunningList()));
     }
     @Test
-    void 메인페이지_영화출력_테스트(){
-        List<Movie> movies = movieRepository.findByRunningAndReleaseDate(LocalDateTime.now());
-        movies.stream().forEach(movie-> System.out.println(movie.getId()));
+    void 메인페이지_영화출력_평점순_테스트(){
+        List<MoviePreviewDto> movies = movieRepository.findByRunningAndReleaseDate();
+        movies.forEach(System.out::println);
+    }
+    @Test
+    void 메인페이지_영화출력_예매율_테스트(){
+        List<MoviePreviewDto> movies = movieRepository.findMoviesSortWithTickets();
+        movies.forEach(System.out::println);
     }
 
     @Test
     void 영화_리뷰_총점_테스트(){
-        Optional<Movie> movie = movieRepository.findById(1L);
-        System.out.println(movie.get().getScore());
+        System.out.println(movieRepository.findById(1L).get());
     }
 
     @Test

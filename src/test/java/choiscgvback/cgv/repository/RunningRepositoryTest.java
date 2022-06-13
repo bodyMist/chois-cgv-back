@@ -27,7 +27,7 @@ public class RunningRepositoryTest {
     }
     @Test
     void 상영시간표_테스트(){
-        LocalDate start = LocalDate.of(2022,05,22);
+        LocalDate start = LocalDate.of(2022,06,12);
         List<TimetableDto> runningList = runningRepository.findByStartTimeBetween(start.atStartOfDay(), start.plusDays(1).atStartOfDay());
         runningList.forEach(o->{
             System.out.println(o.toString());
