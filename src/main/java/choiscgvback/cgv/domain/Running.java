@@ -2,6 +2,9 @@ package choiscgvback.cgv.domain;
 
 import choiscgvback.cgv.model.BaseDiscountPolicy;
 import choiscgvback.cgv.model.DiscountPolicy;
+import com.fasterxml.jackson.annotation.JsonGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -22,7 +25,8 @@ public class Running {
     @NotNull
     private LocalDateTime endTime;
     @Transient
-    private DiscountPolicy policy;
+    @JsonIgnore
+    private DiscountPolicy policy = new BaseDiscountPolicy();
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "MOVIE_ID")
@@ -31,4 +35,15 @@ public class Running {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "THEATER_ID")
     private Theater theater;
+
+    @Override
+    public String toString() {
+        return "Running{" +
+                "id=" + id +
+                ", startTime=" + startTime +
+                ", endTime=" + endTime +
+                ", policy=" + policy.getClass() +
+                ", movie=" + movie.getTitle() +
+                '}';
+    }
 }

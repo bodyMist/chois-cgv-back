@@ -28,4 +28,14 @@ public class Review {
 
     @OneToMany(mappedBy = "review")
     private List<Like> likes = new ArrayList<>();
+
+    @Override
+    public String toString() {
+        return "\nReview{" +
+                ", member=" + member.getName() +
+                ", score=" + score +
+                ", comment='" + comment + '\'' +
+                ", likes=" + likes.size() +
+                '}';
+    }
 }
