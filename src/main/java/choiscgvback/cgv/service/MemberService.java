@@ -22,8 +22,6 @@ public class MemberService implements BaseService{
 
     // 마이페이지
     public MypageDto getMemberDetail(Long memberId){
-        Optional<Member> member = memberRepository.findById(memberId);
-        MypageDto mypage = new MypageDto(member.get());
-        return mypage;
+        return new MypageDto(memberRepository.findById(memberId).get());
     }
 }

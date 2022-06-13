@@ -1,5 +1,6 @@
 package choiscgvback.cgv.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.ToString;
 
@@ -17,7 +18,17 @@ import java.util.List;
         @NamedEntityGraph(
                 name = "member-with-tickets",
                 attributeNodes = {
-                        @NamedAttributeNode("tickets")
+                        @NamedAttributeNode(value = "tickets", subgraph = "ticket_with_running")
+                },
+                subgraphs = {
+                        @NamedSubgraph(name = "ticket_with_running",
+                                attributeNodes = {
+                                @NamedAttributeNode(value = "running", subgraph = "running_with_movie")
+                        }),
+                        @NamedSubgraph(name = "running_with_movie",
+                        attributeNodes = {
+                                @NamedAttributeNode(value = "movie")
+                        })
                 }
         )
 })
@@ -43,6 +54,7 @@ public class Member{
     @NotNull
     private boolean type;   // 0: 관리자 1: 회원
 
+    @JsonIgnore
     @OneToMany(mappedBy = "member", cascade = CascadeType.REMOVE)
     private List<Review> reviews = new ArrayList<>();
     @OneToMany(mappedBy = "member", cascade = CascadeType.REMOVE)
