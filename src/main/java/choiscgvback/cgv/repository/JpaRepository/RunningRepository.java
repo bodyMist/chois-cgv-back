@@ -20,8 +20,8 @@ public interface RunningRepository extends JpaRepository<Running, Long> {
             "FROM Running r " +
             "LEFT JOIN MOVIES m ON r.movie.id = m.id " +
             "LEFT JOIN THEATERS t ON r.theater.id = t.id " +
-            "INNER JOIN TicketSeat ts ON ts.running.id = r.id " +
-            "GROUP BY r.id")
+            "WHERE r.startTime >= :start AND r.startTime < :end " +
+            "GROUP BY r.id ")
     List<TimetableDto> findByStartTimeBetween(LocalDateTime start, LocalDateTime end);
 
     // 예매페이지, 영화와 날짜를 토대로 모든 상영 가져오기
@@ -31,7 +31,6 @@ public interface RunningRepository extends JpaRepository<Running, Long> {
             "FROM Running r " +
             "LEFT JOIN MOVIES m ON r.movie.id = m.id " +
             "LEFT JOIN THEATERS t ON r.theater.id = t.id " +
-            "INNER JOIN TicketSeat ts ON ts.running.id = r.id " +
             "WHERE r.movie.id = :movieId AND r.startTime >= :criteria " +
             "GROUP BY r.id")
     List<TimetableDto> findByMovie_IdAndStartTimeAfter(Long movieId, LocalDateTime criteria);
@@ -43,7 +42,6 @@ public interface RunningRepository extends JpaRepository<Running, Long> {
             "FROM Running r " +
             "LEFT JOIN MOVIES m ON r.movie.id = m.id " +
             "LEFT JOIN THEATERS t ON r.theater.id = t.id " +
-            "INNER JOIN TicketSeat ts ON ts.running.id = r.id " +
             "GROUP BY r.id")
     List<TimetableDto> findAllTimetable();
 }

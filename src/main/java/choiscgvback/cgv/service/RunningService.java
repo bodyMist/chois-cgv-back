@@ -1,6 +1,7 @@
 package choiscgvback.cgv.service;
 
 import choiscgvback.cgv.domain.Running;
+import choiscgvback.cgv.domain.Seat;
 import choiscgvback.cgv.dto.TimetableDto;
 import choiscgvback.cgv.model.DiscountPolicy;
 import choiscgvback.cgv.repository.JpaRepository.RunningRepository;
@@ -18,9 +19,13 @@ import java.util.List;
 public class RunningService implements BaseService{
     private final RunningRepository runningRepository;
 
+    public Running findById(Long id){
+        return runningRepository.findById(id).get();
+    }
+
     // 상영시간표 페이지
     public List<TimetableDto> getRunning(){
-        List<TimetableDto> timetableList = runningRepository.findByStartTimeBetween(LocalDateTime.from(LocalDate.now()), LocalDateTime.now().plusDays(5));
+        List<TimetableDto> timetableList = runningRepository.findByStartTimeBetween(LocalDate.now().atStartOfDay(), LocalDate.now().plusDays(1).atStartOfDay());
         return timetableList;
     }
 
