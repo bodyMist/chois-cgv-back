@@ -7,10 +7,7 @@ import choiscgvback.cgv.dto.MovieStatisticDto;
 import choiscgvback.cgv.repository.JpaRepository.MovieRepository;
 import choiscgvback.cgv.repository.JpaRepository.TicketRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Slice;
-import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -29,27 +26,31 @@ public class MovieService implements BaseService{
     public Movie findOne(Long movieId){return movieRepository.findById(movieId).get();}
 
     // 메인페이지, 현재 상영작 예평점순 조회(page_size=5)
-    public Slice<Movie> findRunningMovieWithReviews(int page){
-        Pageable pageRequest = PageRequest.of(page,5, Sort.by(Sort.Direction.ASC, ""));
-        return movieRepository.findByRunningAndReleaseDateWithPageable(LocalDateTime.now(), pageRequest);
+    public Page<MoviePreviewDto> findAll(int page){
+        Pageable pageRequest = PageRequest.of(page,5);
+        List<MoviePreviewDto> list = movieRepository.findAll(pageRequest)
+                .map(MoviePreviewDto::new)
+                .stream().collect(Collectors.toList());
+        Page<MoviePreviewDto> movies = new PageImpl<>(list);
+        return movies;
     }
     // 메인페이지, 현재 상영작 평점순 조회
-    public List<Movie> findRunningMovieWithReviews() {
-        return movieRepository.findByRunningAndReleaseDate(LocalDateTime.now());
+    public List<MoviePreviewDto> findRunningMovieWithReviews() {
+        return movieRepository.findByRunningAndReleaseDate();
     }
     // 메인페이지, 현재 상영작 예매순 조회
     public List<MoviePreviewDto> findRunningMovieWithTickets() {
-        return movieRepository.findMoviesSortWithTickets(LocalDateTime.now());
+        return movieRepository.findMoviesSortWithTickets();
     }
     // 영화페이지, 검색기능
-    public List<MoviePreviewDto> searchMovie(int condition, String term){
+    public List<MoviePreviewDto> searchMovie(String condition, String term){
         List<MoviePreviewDto> result;
         switch (condition){
-            case 1:
+            case "title":
                 result = movieRepository.findByTitle(term).stream()
                     .map(movie -> new MoviePreviewDto(movie)).collect(Collectors.toList());
                     break;
-            case 2:
+            case "actor":
                 result = movieRepository.findByActor(term).stream()
                     .map(MoviePreviewDto::new).collect(Collectors.toList());
                 break;
